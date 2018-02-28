@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace kalkulatorcsh
 {
-    public partial class Form1 : Form
+    public partial class OknoKalkulatora : Form
     {
         Double resultValue=0;
         
@@ -24,7 +24,7 @@ namespace kalkulatorcsh
         //gets the operator character
         String separator = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator; 
 
-        public Form1()
+        public OknoKalkulatora()
         {
             InitializeComponent();
         }

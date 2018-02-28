@@ -1,6 +1,6 @@
 ﻿namespace kalkulatorcsh
 {
-    partial class Form1
+    partial class OknoKalkulatora
     {
         /// <summary>
         /// Required designer variable.
