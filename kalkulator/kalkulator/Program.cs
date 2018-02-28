@@ -18,7 +18,7 @@ namespace kalkulatorcsh
             Thread.CurrentThread.CurrentCulture.ClearCachedData(); //umożliwia zmianę wyboru regionu bez konieczności restartowania komputera
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new OknoKalkulatora());
         }
     }
 }
