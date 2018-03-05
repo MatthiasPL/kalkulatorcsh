@@ -73,7 +73,12 @@ namespace kalkulatorcsh
                         result.Text = result.Text.Remove(0, 1);
                     }
                     else if (!(result.Text == "0"))
-                        result.Text = result.Text.Insert(0, "-");
+                    {
+                        //Removing bug with -0.0
+                        Double checkingValue = Double.Parse(result.Text);
+                        if (checkingValue != 0)
+                            result.Text = result.Text.Insert(0, "-");
+                    }
                 }
             }
             //if there was an operation performed (+, -, /, *) the "=" button will force to solve this to count 
