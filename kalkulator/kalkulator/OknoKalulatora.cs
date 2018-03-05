@@ -97,7 +97,7 @@ namespace kalkulatorcsh
                 Double secondValue = Double.Parse(result.Text);
 
                 //the final result
-                Double final;
+                Double final=0;
 
                 if (operationPerformed == "+")
                 {
@@ -116,7 +116,7 @@ namespace kalkulatorcsh
                 }
                 else if (operationPerformed == "/")
                 {
-                    //adding an exception if the user tries to divide by 0
+                    //added an exception if the user tries to divide by 0
                     if (secondValue != 0)
                     {
                         final = resultValue / secondValue;
@@ -127,6 +127,23 @@ namespace kalkulatorcsh
                         label.Text = "Can't divide by 0";
                     }
                 }
+
+                if (final > Double.MaxValue)
+                {
+                    label.Text = "The number is too big";
+                }
+
+                decimal d = Decimal.Parse(final.ToString(), System.Globalization.NumberStyles.Float);
+                d = Math.Round(d, 14);
+                result.Text = d.ToString();
+                if (d.ToString().Length > 16)
+                {
+                    final = Double.Parse(d.ToString());
+                    result.Text = final.ToString();
+                }
+                //int EPosition = final.ToString().IndexOf("E");
+                //int separatorPosition = final.ToString().IndexOf(separator);
+
                 isOperationPerformed = false;
             }
             else
@@ -145,7 +162,7 @@ namespace kalkulatorcsh
                     {
                         result.Text += button.Text;
                     }
-                    //max 16 chars to input
+                    //added limit of 16 chars to input
                     if (result.Text.Length > 16)
                     {
                         result.Text = result.Text.Remove(result.Text.Length - 1);
