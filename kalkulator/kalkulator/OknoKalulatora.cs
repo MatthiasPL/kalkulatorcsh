@@ -145,6 +145,11 @@ namespace kalkulatorcsh
                     {
                         result.Text += button.Text;
                     }
+                    //max 16 chars to input
+                    if (result.Text.Length > 16)
+                    {
+                        result.Text = result.Text.Remove(result.Text.Length - 1);
+                    }
                     if ((button.Text == "+" || button.Text == "-" || button.Text == "*" || button.Text == "/") && (isOperationPerformed == false))
                     {
                         //trimming the operator sign
